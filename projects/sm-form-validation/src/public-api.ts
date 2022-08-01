@@ -7,5 +7,4 @@ export * from './lib/data';
 export * from './lib/directives';
 export * from  './lib/interface';
 export * from './lib/config';
-export * from './lib/services';
 export * from './lib/sm-form-validation.module';

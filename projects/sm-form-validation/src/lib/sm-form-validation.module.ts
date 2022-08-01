@@ -1,9 +1,9 @@
-import {Inject, ModuleWithProviders, NgModule} from '@angular/core';
+import {ModuleWithProviders, NgModule} from '@angular/core';
 import {ControlErrorComponent} from './components';
 import {ControlErrorContainerDirective, ControlErrorDirective, FormSubmitDirective} from './directives';
 import {SMFormValidationConfig} from './interface';
-import {SM_FORM_VALIDATION_CONFIG} from './config';
-import {ConfigService} from './services';
+
+
 
 
 
