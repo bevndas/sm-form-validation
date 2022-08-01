@@ -1,0 +1,12 @@
+:root {
+  --sm-validation-error-color: #d10a11;
+}
+
+.error input,
+.error  textarea {
+  border: 1px solid var( --sm-validation-error-color);
+}
+
+.error span.error-message {
+  color: var( --sm-validation-error-color);
+}
