@@ -1,6 +1,6 @@
 {
   "name": "sm-validation",
-  "version": "0.0.1",
+  "version": "0.0.6",
   "description": "This is utility library to show form errors.",
   "author": {
     "name": "Bipin Shrestha",
@@ -12,8 +12,8 @@
     "url":  "https://github.com/bevndas/sm-form-validation"
   },
   "peerDependencies": {
-    "@angular/common": "^13.3.0",
-    "@angular/core": "^13.3.0"
+    "@angular/common": ">=13.3.0",
+    "@angular/core": ">=13.3.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"
