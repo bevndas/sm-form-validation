@@ -1,0 +1,15 @@
+<form [formGroup]="testForm" (submit)="onValidation()">
+  <div class="form-group" controlErrorContainer>
+    <input  type="text"  formControlName="testUser">
+  </div>
+  <div class="form-group" controlErrorContainer>
+    <input type="password" formControlName="password"  [customErrors]="{required: 'This is hero '}">
+  </div>
+  <div class="form-group" controlErrorContainer>
+    <input type="text"  formControlName="customField" >
+  </div>
+  <div class="form-group" controlErrorContainer>
+    <input type="text"  formControlName="minValid">
+  </div>
+  <button  type="submit">Save</button>
+</form>

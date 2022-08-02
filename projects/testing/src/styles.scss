@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+input[type=text],
+input[type=password]{
+  font-size: 0.8rem;
+  appearance: none;
+  position: relative;
+  width: 100%;
+  padding: 10px;
+  border: 1px #e1e1e1 solid;
+  border-radius: 3px;
+  margin-bottom: 5px;
+}
+
+input {
+  font-family: inherit;
+}
