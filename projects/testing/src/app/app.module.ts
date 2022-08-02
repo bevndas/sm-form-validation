@@ -15,13 +15,11 @@ import {SmFormValidationModule} from 'sm-validation';
     imports: [
         BrowserModule,
         ReactiveFormsModule,
-      SmFormValidationModule.config(
-        {
-          defaultErrors: {
-            required:() => 'This is a whoile',
-          }
+      SmFormValidationModule.config({
+        defaultErrors: {
+          required: 'Kya re'
         }
-      )
+      })
     ],
   providers: [],
   bootstrap: [AppComponent]
