@@ -34,7 +34,7 @@ We need to import the module  in our app.module.ts first.
 #### Typescript
 
 ```ts
-import {SmFormValidationModule} from 'sm-ng-form-validation'
+import {SmFormValidationModule} from 'sm-validation'
 
 @NgModule({
   declarations: [
@@ -75,7 +75,7 @@ the error message, you can simply pass the color code/name while importing the m
 ####  Example
 
 ```ts
-import {SmFormValidationModule} from 'sm-ng-form-validation'
+import {SmFormValidationModule} from 'sm-validation'
 
 @NgModule({
   declarations: [
@@ -114,7 +114,7 @@ export const defaultErrors = {
 The error messages can be overwritten while importing the module as :
 
 ```ts
-import {SmFormValidationModule} from 'sm-ng-form-validation'
+import {SmFormValidationModule} from 'sm-validation'
 
 @NgModule({
     declarations: [
