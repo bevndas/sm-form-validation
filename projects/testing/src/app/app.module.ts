@@ -15,9 +15,9 @@ import {SmFormValidationModule} from 'sm-validation';
     imports: [
         BrowserModule,
         ReactiveFormsModule,
-      SmFormValidationModule.config({
+      SmFormValidationModule.forRoot({
         defaultErrors: {
-          required: 'Kya re'
+          required: () => 'This is custom'
         }
       })
     ],

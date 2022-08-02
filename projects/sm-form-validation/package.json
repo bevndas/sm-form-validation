@@ -1,6 +1,6 @@
 {
   "name": "sm-validation",
-  "version": "0.0.6",
+  "version": "0.0.14",
   "description": "This is utility library to show form errors.",
   "author": {
     "name": "Bipin Shrestha",

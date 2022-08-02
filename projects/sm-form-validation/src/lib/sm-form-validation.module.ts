@@ -21,9 +21,8 @@ import {defaultErrors, FORM_ERRORS} from './data';
   ]
 })
 export class SmFormValidationModule {
-  static forRoot(config: SMFormValidationConfig): ModuleWithProviders<SmFormValidationModule> {
-    if (config && isNotEmpty(config)) {
-      if (config.hasOwnProperty('errorColor'))  {
+  static forRoot(config?: SMFormValidationConfig): ModuleWithProviders<SmFormValidationModule> {
+      if (config && config.hasOwnProperty('errorColor'))  {
         const root = document.querySelector(':root');
         // @ts-ignore
         root.style.setProperty('--sm-validation-error-color', config.errorColor)
@@ -32,16 +31,9 @@ export class SmFormValidationModule {
         ngModule: SmFormValidationModule,
         providers:[{
           provide: FORM_ERRORS,
-          useFactory:() => ({...defaultErrors, ...(hasErrorMessages(config.defaultErrors) && config.defaultErrors)})
+          useFactory:() => ({...defaultErrors, ...(config && hasErrorMessages(config.defaultErrors) && config.defaultErrors)})
         }]
       }
-    } else {
-      return {
-        ngModule: SmFormValidationModule,
-        providers:[]
-      }
-    }
-
   }
 }
 
