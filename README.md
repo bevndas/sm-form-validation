@@ -1,27 +1,156 @@
-# SmFormValidation
+# Introduction
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.5.
+This is an angular library to show error messages for  reactive forms in a cleaner way using the power of directives.
 
-## Development server
+--- ---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Table of Contents
 
-## Build
+- [Installation](#installation)
+- [Features](#features)
+- [Usage](#usage)
+- [Customisation](#customisation)
+- [Contribution](#contribution)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## Installation
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+`npm install sm-validation`
 
-## Running end-to-end tests
+## Features
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- Easily show the basic error messages for reactive forms
+- Set default error messages across the app
+- Manages error message state in the template
+- Reduce form validation code
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Usage
+
+We need to import the module  in our app.module.ts first.
+
+#### Typescript
+
+```ts
+import {SmFormValidationModule} from 'sm-ng-form-validation'
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+    imports: [
+        BrowserModule,
+        ReactiveFormsModule,
+        SmFormValidationModule
+    ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+
+Then, we need to make the use of `formControlName`  and  `controlErrorContainer`  directives
+to show the errors. <br/>
+1. `controlErrorContainer`  - It should be given to the wrapper where the error is to be displayed.
+2. `formControlName` - The input with formControlName should be wrapped with `controlErrorContainer` directive to show the error.
+
+#### HTML
+
+```html
+<form [formGroup]="validationForm">
+    <div class="form-group"  controlErrorContainer>
+        <input type="text" formControlName="testField">
+    </div>
+    <button type="submit">Save</button>
+</form>
+```
+
+## Customisation
+
+There are easy customisation options readily available. If you want to change the color of
+the error message, you can simply pass the color code/name while importing the module.
+
+####  Example
+
+```ts
+import {SmFormValidationModule} from 'sm-ng-form-validation'
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+    imports: [
+        BrowserModule,
+        ReactiveFormsModule,
+        SmFormValidationModule.forRoot({
+            errorColor: 'red' // or any hex value
+        })
+    ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+
+However, to change other styles, the  `error` and `error-message` classes need to be overwritten.
+1. `error`  -   This class is the styling for the container
+2. `error-message` - This class is the styling for the error message.
+
+For the error messages, the  default messages are:
+
+```ts
+export const defaultErrors = {
+    required: () => 'This field is required',
+    min: (requiredLength: number) => `The input should not be less than ${requiredLength}`,
+    minlength: ({requiredLength, actualLength}:any) => `Expected ${requiredLength} but got ${actualLength}`,
+    maxlength: ({requiredLength, actualLength}:any) => `Expected ${requiredLength} but got ${actualLength}`,
+    email: () => 'Please enter a valid email',
+    pattern: () => 'Invalid input'
+};
+```
+
+The error messages can be overwritten while importing the module as :
+
+```ts
+import {SmFormValidationModule} from 'sm-ng-form-validation'
+
+@NgModule({
+    declarations: [
+        AppComponent
+    ],
+    imports: [
+        BrowserModule,
+        ReactiveFormsModule,
+        SmFormValidationModule.forRoot({
+            defaultErrors: {
+                required:() => 'This is a custom required message',
+            }
+        })
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+
+The error messages can also be overwritten from the  template section as well.
+
+#### HTML
+
+```html
+<form [formGroup]="validationForm">
+    <div class="form-group"  controlErrorContainer>
+        <input type="text" formControlName="testField" [customErrors]="{required:  'This is a custom message'}">
+    </div>
+    <button type="submit">Save</button>
+</form>
+```
+
+## Contribution
+
+If you  would like to contribute, you are welcome. Fork the repository  and open pull request.
+
+
+

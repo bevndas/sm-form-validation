@@ -10,7 +10,6 @@ import {defaultErrors, FORM_ERRORS} from './data';
     ControlErrorDirective,
     ControlErrorContainerDirective,
     FormSubmitDirective
-
   ],
   imports: [
   ],
